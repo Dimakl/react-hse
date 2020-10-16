@@ -45,10 +45,7 @@ class Task extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: props.id,
-      name: props.name,
-      description: props.description,
-      completed: props.completed
+      ...props
     }
   }
 
@@ -57,9 +54,13 @@ class Task extends React.Component {
   render() {
     return (
       <div className="task">
-      <div className="name">{this.state.name}</div>
-      <div className="description">{this.state.description}</div>
-      <div className="completed">{this.state.completed}</div>
+        <div className="taskName">{this.state.name}</div>
+        <div className="taskDescription">{this.state.description}</div>
+        <div className="taskCompleted">{String(this.state.completed)}</div>
+        <button className="taskButton" 
+          onClick={() => console.log(`Task ${this.state.id} completed status = ${this.state.completed}`)}>
+          Complete task!
+          </button>
       </div>
     );
   }
