@@ -72,6 +72,8 @@ class TaskList extends React.Component {
     }
 }
 
+
+// Task is Class Component, instead of Functional Component, because of having "completed" state and as a growndwork for future possibility of editing fields inside of each Task.
 class Task extends React.Component {
 
   constructor(props) {
