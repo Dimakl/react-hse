@@ -1,6 +1,6 @@
 import React from 'react';
 
-class TaskListComponent extends React.Component {
+class TaskList extends React.Component {
   state = {
     cnt: 0,
     tasks: [
@@ -33,11 +33,37 @@ class TaskListComponent extends React.Component {
     
     render() {
       return (
-        <div className="app">
-        TODO
+        <div>
+        <Task {...this.state.tasks[0]}/>
         </div>
       );
     }
 }
 
-export default TaskListComponent;
+class Task extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: props.id,
+      name: props.name,
+      description: props.description,
+      completed: props.completed
+    }
+  }
+
+
+
+  render() {
+    return (
+      <div className="task">
+      <div className="name">{this.state.name}</div>
+      <div className="description">{this.state.description}</div>
+      <div className="completed">{this.state.completed}</div>
+      </div>
+    );
+  }
+}
+
+
+export default TaskList;
