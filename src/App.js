@@ -24,6 +24,36 @@ class TaskList extends React.Component {
       },
       {
         id: 1238,
+        name: '4th task',
+        description: 'aoaoaooaoaa',
+        completed: false
+      },
+      {
+        id: 1239,
+        name: '5th task',
+        description: 'bboboboboobobob',
+        completed: false
+      },
+      {
+        id: 1240,
+        name: '7th task',
+        description: 'cococooco',
+        completed: true
+      },
+      {
+        id: 1241,
+        name: '8th task',
+        description: 'dodoododdod',
+        completed: false
+      },
+      {
+        id: 1242,
+        name: '9th task',
+        description: 'fofofofofofofo',
+        completed: true
+      },
+      {
+        id: 1243,
         name: 'last task',
         description: '??????????????',
         completed: false
