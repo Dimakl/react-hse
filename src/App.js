@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 
 class TaskList extends React.Component {
 
@@ -67,7 +68,7 @@ class TaskList extends React.Component {
       const taskIterator = this.state.tasks.map((l) => <Task {...l} key={l.id}/>)
 
       return (
-        <div className="TaskList">{taskIterator}</div>
+        <div id="taskList"><a id="taskListText">YOUR PERSONAL TODO-LIST:</a>{taskIterator}</div>
       );
     }
 }
@@ -85,14 +86,15 @@ class Task extends React.Component {
 
   render() {
     const onButtonClick = () => console.log(`Task ${this.state.id} completed status = ${this.state.completed}`)
-
+    const buttonTextStyle =  {color: this.state.completed ? "#196F3D" : "#922B21"}
+    
     return (
       <div className="task">
-        <div className="taskName">{this.state.name}</div>
-        <div className="taskDescription">{this.state.description}</div>
-        <div className="taskCompleted">{String(this.state.completed)}</div>
+        <div>{this.state.name}</div>
+        <div>{this.state.description}</div>
+        <div><a style={buttonTextStyle}>{String(this.state.completed)}</a></div>
         <button className="taskButton" onClick={onButtonClick}>
-          Complete task!
+          {this.state.completed ? "Unc" : "C"}omplete task!
         </button>
       </div>
     );
