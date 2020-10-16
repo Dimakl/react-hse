@@ -32,9 +32,11 @@ class TaskList extends React.Component {
   };
     
     render() {
+      const taskIterator = this.state.tasks.map((l) => <Task {...l}/>)
+
       return (
         <div>
-        <Task {...this.state.tasks[0]}/>
+        {taskIterator}
         </div>
       );
     }
@@ -52,15 +54,16 @@ class Task extends React.Component {
 
 
   render() {
+    const onButtonClick = () => console.log(`Task ${this.state.id} completed status = ${this.state.completed}`)
+
     return (
       <div className="task">
         <div className="taskName">{this.state.name}</div>
         <div className="taskDescription">{this.state.description}</div>
         <div className="taskCompleted">{String(this.state.completed)}</div>
-        <button className="taskButton" 
-          onClick={() => console.log(`Task ${this.state.id} completed status = ${this.state.completed}`)}>
+        <button className="taskButton" onClick={onButtonClick}>
           Complete task!
-          </button>
+        </button>
       </div>
     );
   }
