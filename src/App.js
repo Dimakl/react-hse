@@ -1,6 +1,7 @@
 import React from 'react';
 
 class TaskList extends React.Component {
+
   state = {
     cnt: 0,
     tasks: [
@@ -18,7 +19,7 @@ class TaskList extends React.Component {
       },
       {
         id: 1237,
-        name: 'Very loooooooooooooooooooooooooooooong task',
+        name: 'Long long long long long long long long long long long long long long long long long long long long long long task',
         description: '!!!!!!!!',
         completed: true
       },
@@ -62,12 +63,11 @@ class TaskList extends React.Component {
   };
     
     render() {
-      const taskIterator = this.state.tasks.map((l) => <Task {...l}/>)
+      // key={l.id} is added to dismiss unique-"key"-props warning 
+      const taskIterator = this.state.tasks.map((l) => <Task {...l} key={l.id}/>)
 
       return (
-        <div>
-        {taskIterator}
-        </div>
+        <div className="TaskList">{taskIterator}</div>
       );
     }
 }
@@ -80,8 +80,6 @@ class Task extends React.Component {
       ...props
     }
   }
-
-
 
   render() {
     const onButtonClick = () => console.log(`Task ${this.state.id} completed status = ${this.state.completed}`)
