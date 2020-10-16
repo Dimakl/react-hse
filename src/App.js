@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class TaskListComponent extends React.Component {
+  state = {
+    cnt: 0,
+    tasks: [
+      {
+        id: 1235,
+        name: 'First task',
+        description: 'This needs to be done',
+        completed: true
+      },
+      {
+        id: 1236,
+        name: '2nd task',
+        description: 'task 2 needs to be done',
+        completed: false
+      },
+      {
+        id: 1237,
+        name: 'Very loooooooooooooooooooooooooooooong task',
+        description: '!!!!!!!!',
+        completed: true
+      },
+      {
+        id: 1238,
+        name: 'last task',
+        description: '??????????????',
+        completed: false
+      }
+    ]
+  };
+    
+    render() {
+      return (
+        <div className="app">
+        TODO
+        </div>
+      );
+    }
 }
 
-export default App;
+export default TaskListComponent;
