@@ -85,7 +85,10 @@ class Task extends React.Component {
   }
 
   render() {
-    const onButtonClick = () => console.log(`Task ${this.state.id} completed status = ${this.state.completed}`)
+    const onButtonClick = () => {
+      console.log(`Task ${this.state.id} completed status = ${this.state.completed}`)
+      this.setState({completed: !this.state.completed})
+    }
     const buttonTextStyle =  {color: this.state.completed ? "#196F3D" : "#922B21", fontWeight: "bold"}
     
     return (
