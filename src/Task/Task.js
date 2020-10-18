@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './css/Task.css'
 
 // Task is Class Component, instead of Functional Component, because of having "completed" state and as a growndwork for future possibility of editing fields inside of each Task.
 class Task extends React.Component {
@@ -11,7 +11,7 @@ class Task extends React.Component {
       }
     }
   
-    
+
     render() {
       const onButtonClick = () => {
         console.log(`Task ${this.state.id} completed status = ${this.state.completed}`)
