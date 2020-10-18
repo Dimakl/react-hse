@@ -68,11 +68,7 @@ class TaskList extends React.Component {
       const taskIterator = this.state.tasks.map((l) => <Task {...l} key={l.id}/>)
 
       return (
-<<<<<<< HEAD
         <div id="taskList"><div id="taskListText">YOUR PERSONAL TODO-LIST:</div>{taskIterator}</div>
-=======
-        <div id="taskList"><a id="taskListText">YOUR PERSONAL TODO-LIST:</a>{taskIterator}</div>
->>>>>>> 995ce3c4a5b7256d804379a689e0cffe2fb476b8
       );
     }
 }
@@ -90,21 +86,13 @@ class Task extends React.Component {
 
   render() {
     const onButtonClick = () => console.log(`Task ${this.state.id} completed status = ${this.state.completed}`)
-<<<<<<< HEAD
     const buttonTextStyle =  {color: this.state.completed ? "#196F3D" : "#922B21", fontWeight: "bold"}
-=======
-    const buttonTextStyle =  {color: this.state.completed ? "#196F3D" : "#922B21"}
->>>>>>> 995ce3c4a5b7256d804379a689e0cffe2fb476b8
     
     return (
       <div className="task">
         <div>{this.state.name}</div>
         <div>{this.state.description}</div>
-<<<<<<< HEAD
         <div><div style={buttonTextStyle}>{this.state.completed ? "DONE" : "TODO"}</div></div>
-=======
-        <div><a style={buttonTextStyle}>{String(this.state.completed)}</a></div>
->>>>>>> 995ce3c4a5b7256d804379a689e0cffe2fb476b8
         <button className="taskButton" onClick={onButtonClick}>
           {this.state.completed ? "Unc" : "C"}omplete task!
         </button>
