@@ -9,7 +9,13 @@ class TaskList extends React.Component {
 
   constructor (props) {
     super(props)
+    console.log("construct")
     this.state.tasks = props.tasks
+  }
+
+  componentDidUpdate(oldProps) {
+    if (oldProps.tasks !== this.props.tasks)
+      this.setState({tasks: this.props.tasks})
   }
       
   render() {
