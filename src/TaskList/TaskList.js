@@ -19,12 +19,11 @@ class TaskList extends React.Component {
   }
       
   render() {
-    console.log(this.state.tasks)
     // key={l.id} is added to dismiss unique-"key"-props warning 
     const taskIterator = this.state.tasks.map((l) => <Task {...l} key={l.id}/>)
 
     return (
-      <div id="taskList"><div id="taskListText">YOUR PERSONAL TODO-LIST:</div>{taskIterator}</div>
+      <div id="taskList"><h1 id="taskListText">YOUR PERSONAL TODO-LIST:</h1>{taskIterator}</div>
     )
   }
 }

@@ -1,0 +1,23 @@
+#taskAddForm {
+    position: absolute;
+    line-height: 30px;
+    margin-right: 5%;
+    margin-left: 77%;
+    padding: 10px;
+}
+
+input {
+    width: 96%;
+}
+
+#submit {
+    width: 100%;
+    background-color: #F7C5CC;
+}
+
+#errorMessageLine {
+    color: #922B21;
+    font-weight: bold;
+    font-size: 12px;
+}
+

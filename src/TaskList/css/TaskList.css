@@ -2,17 +2,8 @@ div #taskList {
     font-size: 20px;
 }
   
-#taskList {
-    border: solid;
-    border-width: 10px;
-    border-color: #C5FAD5; 
+#taskList { 
     margin-left: 25%;
     margin-right: 25%;
     text-align: center;
-}
-
-#taskListText {
-    font-weight: bold;
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
 }

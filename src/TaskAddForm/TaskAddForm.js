@@ -1,42 +1,66 @@
 import React from 'react'
 import './css/TaskAddForm.css'
-import TaskList from './../TaskList/TaskList.js'
 
 class TaskAddForm extends React.Component {
+
+    state = {
+        errorMessage: ""
+    }
+
 
     constructor(props) {
         super(props)
         this.refToApp = props.refToApp
-        console.log("this.refToApp")
-        console.log(this.refToApp)
         this.onClickForSubmit = () => {
-            console.log(this.name)
-
-            this.refToApp.setState(prevState => ({
-                tasks: [
-                    ...prevState.tasks, 
-                    {
-                        id: this.refToApp.state.currentId,
-                        name: this.name.value,
-                        description: this.description.value,
-                        completed: false
-                    }
-                ],
-                currentId: prevState.currentId + 1    
-            }))
+            (this.name.value === "" || this.description.value == "") ? this.showErrorMessage() : this.createNewTask()
+            this.name.value = ""
         }
-        this.onClickForSubmit = this.onClickForSubmit.bind(this)
     }
+
+
+    showErrorMessage = () => {
+        this.setState({errorMessage: "Please fill both name and description"})
+    }
+
+
+    createNewTask = () => {
+        this.setState({errorMessage: ""})
+        // without curstate changing this.name.value (or description) to "" in this scope lead to it being empty in Task too :(
+        const curstate = {
+            name: this.name.value,
+            description: this.description.value
+        }
+        this.refToApp.setState(prevState => ({
+            tasks: [
+                ...prevState.tasks, 
+                {
+                    id: this.refToApp.state.currentId,
+                    name: curstate.name,
+                    description: curstate.name,
+                    completed: false
+                }
+            ],
+            currentId: prevState.currentId + 1    
+        }))
+        this.name.value = ""
+        this.description.value = ""
+    }
+
 
     render() {
         return (
-        <div>
+        <div id="taskAddForm">
+        <h1>ADD TASKS:</h1>
+        <p id="errorMessageLine">{this.state.errorMessage}</p>
         <input id="name" ref={newname => (this.name = newname)}></input>
+        <br/>
         <input id="description" ref={newdescription => (this.description = newdescription)}></input>
-        <button id="submit" onClick={this.onClickForSubmit}>SUBMIT</button>
+        <br/>
+        <button id="submit" onClick={this.onClickForSubmit}>Add!</button>
         </div>
         )
     }
 }
+
 
 export default TaskAddForm

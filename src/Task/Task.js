@@ -9,22 +9,26 @@ class Task extends React.Component {
       this.state = {
         ...props
       }
+      this.buttonTextStyle =  {color: this.state.completed ? this.taskButtonColors.green : this.taskButtonColors.red, fontWeight: "bold"}
+    }
+
+    taskButtonColors = {
+      green: "#196F3D",
+      red: "#922B21"
     }
   
+    onButtonClick = () => {
+      console.log(`Task ${this.state.id} completed status = ${this.state.completed}`)
+      this.setState({completed: !this.state.completed})
+    }
 
     render() {
-      const onButtonClick = () => {
-        console.log(`Task ${this.state.id} completed status = ${this.state.completed}`)
-        this.setState({completed: !this.state.completed})
-      }
-      const buttonTextStyle =  {color: this.state.completed ? "#196F3D" : "#922B21", fontWeight: "bold"}
-      
       return (
         <div className="task">
           <div>{this.state.name}</div>
           <div>{this.state.description}</div>
-          <div><div style={buttonTextStyle}>{this.state.completed ? "DONE" : "TODO"}</div></div>
-          <button className="taskButton" onClick={onButtonClick}>
+          <div><div style={this.buttonTextStyle}>{this.state.completed ? "DONE" : "TODO"}</div></div>
+          <button className="taskButton" onClick={this.onButtonClick}>
             {this.state.completed ? "Unc" : "C"}omplete task!
           </button>
         </div>

@@ -68,7 +68,7 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
+      <div id ="App">
       <TaskAddForm refToApp={this}/>
       <TaskList tasks={this.state.tasks}/>
       </div>
