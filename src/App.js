@@ -65,8 +65,7 @@ class App extends React.Component {
     ]
   }
 
-  changeTaskCompletionState = (taskId) =>
-  {
+  changeTaskCompletionState = (taskId) => {
     const indexOfTaskToChangeCompletionState = this.state.tasks.findIndex((taskData) => taskData["id"] === taskId)
     const prevStateOfTask = this.state.tasks[indexOfTaskToChangeCompletionState]
     let editedTasks = [...this.state.tasks]
@@ -81,10 +80,25 @@ class App extends React.Component {
     })
   }
 
+  addTask = (name, description) => {
+    this.setState(prevState => ({
+      tasks: [
+          ...prevState.tasks, 
+          {
+              id: this.state.tasks.length,
+              name: name,
+              description: description,
+              completed: false
+          }
+      ] 
+  }))
+  }
+
+
   render () {
     return (
       <div id ="App">
-      <TaskAddForm refToApp={this}/>
+      <TaskAddForm addTask={this.addTask}/>
       <TaskList tasks={this.state.tasks} changeCompletionStateFunction={this.changeTaskCompletionState}/>
       </div>
     )
