@@ -8,6 +8,7 @@
 .taskButton {
     background-color: #F7C5CC;
     border: solid #F7C5CC;
+    font-weight: "bold";
 }
   
 .task > div {
