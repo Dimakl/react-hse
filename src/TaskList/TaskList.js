@@ -7,10 +7,12 @@ class TaskList extends React.Component {
 
   taskList = []
   
+
   constructor (props) {
     super(props)
     this.onNewPropsChanges(props)
   }
+
 
   onNewPropsChanges = (props) => 
     this.taskList = props.tasks.map((taskData) => <Task {...taskData} key={taskData.id} changeCompletionStateFunction={props.changeCompletionStateFunction}/>)
@@ -20,6 +22,7 @@ class TaskList extends React.Component {
     this.onNewPropsChanges(nextProps)
   }
       
+  
   render() {
     // key={l.id} is added to dismiss unique-"key"-props warning 
     return (

@@ -13,13 +13,16 @@ class Task extends React.Component {
     
     wasCompleted = false
 
+
     shouldComponentUpdate(nextProps) {
       return this.wasCompleted !== nextProps.completed
     }
 
+
     componentWillUpdate(nextProps) {
         this.onNewPropsChanges(nextProps)
     }
+
 
     onNewPropsChanges(props) {
       this.wasCompleted = props.completed
@@ -41,6 +44,7 @@ class Task extends React.Component {
         </div>
     }
 
+    
     constructor(props) {
       super(props)
       this.onNewPropsChanges(props)
