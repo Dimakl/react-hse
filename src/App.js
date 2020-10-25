@@ -65,6 +65,7 @@ class App extends React.Component {
     ]
   }
 
+
   changeTaskCompletionState = (taskId) => {
     const indexOfTaskToChangeCompletionState = this.state.tasks.findIndex((taskData) => taskData["id"] === taskId)
     const prevStateOfTask = this.state.tasks[indexOfTaskToChangeCompletionState]
@@ -80,6 +81,7 @@ class App extends React.Component {
     })
   }
 
+  
   addTask = (name, description) => {
     this.setState(prevState => ({
       tasks: [

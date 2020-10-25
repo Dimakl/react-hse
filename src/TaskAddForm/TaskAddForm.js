@@ -9,6 +9,7 @@ class TaskAddForm extends React.Component {
     name = ""
     description = ""
 
+    
     constructor(props) {
         super(props)
         this.addTask = () => {
