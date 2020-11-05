@@ -1,105 +1,111 @@
-import React from 'react';
-import './App.css'
+import React from 'react'
+import './css/App.css'
+import TaskAddForm from './TaskAddForm/TaskAddForm'
+import TaskList from './TaskList/TaskList.js'
 
-class TaskList extends React.Component {
+
+class App extends React.Component {
 
   state = {
-    cnt: 0,
     tasks: [
       {
-        id: 1235,
+        id: 0,
         name: 'First task',
         description: 'This needs to be done',
         completed: true
       },
       {
-        id: 1236,
+        id: 1,
         name: '2nd task',
         description: 'task 2 needs to be done',
         completed: false
       },
       {
-        id: 1237,
+        id: 2,
         name: 'Long long long long long long long long long long long long long long long long long long long long long long task',
         description: '!!!!!!!!',
         completed: true
       },
       {
-        id: 1238,
+        id: 3,
         name: '4th task',
         description: 'aoaoaooaoaa',
         completed: false
       },
       {
-        id: 1239,
+        id: 4,
         name: '5th task',
         description: 'bboboboboobobob',
         completed: false
       },
       {
-        id: 1240,
+        id: 5,
         name: '7th task',
         description: 'cococooco',
         completed: true
       },
       {
-        id: 1241,
+        id: 6,
         name: '8th task',
         description: 'dodoododdod',
         completed: false
       },
       {
-        id: 1242,
+        id: 7,
         name: '9th task',
         description: 'fofofofofofofo',
         completed: true
       },
       {
-        id: 1243,
+        id: 8,
         name: 'last task',
         description: '??????????????',
         completed: false
       }
     ]
-  };
-    
-    render() {
-      // key={l.id} is added to dismiss unique-"key"-props warning 
-      const taskIterator = this.state.tasks.map((l) => <Task {...l} key={l.id}/>)
-
-      return (
-        <div id="taskList"><div id="taskListText">YOUR PERSONAL TODO-LIST:</div>{taskIterator}</div>
-      );
-    }
-}
-
-
-// Task is Class Component, instead of Functional Component, because of having "completed" state and as a growndwork for future possibility of editing fields inside of each Task.
-class Task extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      ...props
-    }
   }
 
-  render() {
-    const onButtonClick = () => console.log(`Task ${this.state.id} completed status = ${this.state.completed}`)
-    const buttonTextStyle =  {color: this.state.completed ? "#196F3D" : "#922B21", fontWeight: "bold"}
-    
+
+  changeTaskCompletionState = (taskId) => {
+    const indexOfTaskToChangeCompletionState = this.state.tasks.findIndex((taskData) => taskData["id"] === taskId)
+    const prevStateOfTask = this.state.tasks[indexOfTaskToChangeCompletionState]
+    let editedTasks = [...this.state.tasks]
+    editedTasks[indexOfTaskToChangeCompletionState] = {
+      id: taskId,
+      name: prevStateOfTask.name,
+      description: prevStateOfTask.description,
+      completed: !prevStateOfTask.completed
+    }
+    this.setState({
+      tasks: editedTasks
+    })
+  }
+
+  
+  addTask = (name, description) => {
+    this.setState(prevState => ({
+      tasks: [
+          ...prevState.tasks, 
+          {
+              id: this.state.tasks.length,
+              name: name,
+              description: description,
+              completed: false
+          }
+      ] 
+  }))
+  }
+
+
+  render () {
     return (
-      <div className="task">
-        <div>{this.state.name}</div>
-        <div>{this.state.description}</div>
-        <div><div style={buttonTextStyle}>{this.state.completed ? "DONE" : "TODO"}</div></div>
-        <button className="taskButton" onClick={onButtonClick}>
-          {this.state.completed ? "Unc" : "C"}omplete task!
-        </button>
+      <div id ="App">
+      <TaskAddForm addTask={this.addTask}/>
+      <TaskList tasks={this.state.tasks} changeCompletionStateFunction={this.changeTaskCompletionState}/>
       </div>
-    );
+    )
   }
 }
 
 
-export default TaskList;
+export default App
