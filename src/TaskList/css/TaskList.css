@@ -3,6 +3,8 @@ div #taskList {
 }
   
 #taskList { 
+    display: flex;
+    flex-direction: column;
     margin-left: 25%;
     margin-right: 25%;
     text-align: center;
