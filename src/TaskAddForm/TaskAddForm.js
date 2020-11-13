@@ -6,21 +6,21 @@ class TaskAddForm extends React.Component {
     state = {
         errorMessage: ""
     }
-    name = ""
-    description = ""
+    nameInput = ""
+    descriptionInput = ""
 
     
     constructor(props) {
         super(props)
         this.addTask = () => {
+            props.addTask(this.nameInput.value,this.descriptionInput.value)
             this.clearForm()
-            props.addTask(this.name,this.description)
         }
     }
 
 
     onClickForSubmit = () =>
-        (this.name === "" || this.description === "") ? this.showErrorMessage() : this.addTask()
+        (this.nameInput.value === "" || this.descriptionInput.value === "") ? this.showErrorMessage() : this.addTask()
 
 
     showErrorMessage = () => {
@@ -35,14 +35,15 @@ class TaskAddForm extends React.Component {
     }
 
 
+    // using refs because clearing inputs and getting value with onChange would be worse
     render() {
         return (
         <div id="taskAddForm">
         <h1>ADD TASKS:</h1>
         <p id="errorMessageLine">{this.state.errorMessage}</p>
-        <input id="name" ref={(newNameInput) => this.nameInput = newNameInput} onChange={newname => (this.name = newname.target.value)}></input>
+        <input id="name" ref={(nameInput) => this.nameInput = nameInput}></input>
         <br/>
-        <input id="description" ref={(newDescriptionInput) => this.descriptionInput = newDescriptionInput} onChange={newdescription => (this.description = newdescription.target.value)}></input>
+        <input id="description" ref={(descriptionInput) => this.descriptionInput = descriptionInput} ></input>
         <br/>
         <button id="submit" onClick={this.onClickForSubmit}>Add!</button>
         </div>
