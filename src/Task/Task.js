@@ -10,7 +10,6 @@ function Task(props) {
   } 
 
   let buttonTextStyle =  {color: props.completed ? taskButtonColors.green : taskButtonColors.red}
-  let buttonText = props.completed ? "DONE" : "TODO"
   const changeThisTaskCompletionState = () => {
     props.changeCompletionStateFunction(props.id)
     console.log(`Task ${props.id} completed status = ${!props.completed}`)
@@ -19,7 +18,7 @@ function Task(props) {
     <div className="task">
       <div>{props.name}</div>
       <div>{props.description}</div>
-      <div><div style={buttonTextStyle}>{buttonText}</div></div>
+      <div><div style={buttonTextStyle}>{props.completed ? "DONE" : "TODO"}</div></div>
       <button className="taskButton" onClick={changeThisTaskCompletionState}>
       {props.completed ? "Unc" : "C"}omplete task!
       </button>
