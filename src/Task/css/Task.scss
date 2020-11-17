@@ -1,0 +1,44 @@
+@import '../../css/const.scss';
+
+.task {
+    &-light-theme {
+        background: get-light-theme-value($task-background-color);
+    }
+
+    &-dark-theme {
+        background: get-dark-theme-value($task-background-color);
+    }
+
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+
+    & > div {
+        margin-bottom: 3px;
+    }
+
+    &:hover {
+        transform:scale(1.01);
+        transition: 0.5s linear;
+    }
+}
+
+.buttonText {
+    transition: 0.25s linear;
+}
+  
+.taskButton {
+    &-light-theme {
+        $light-button-backround-color: get-light-theme-value($button-background-color);
+        background-color: $light-button-backround-color;
+        border: solid $light-button-backround-color;
+    }
+
+    &-dark-theme {
+        $dark-button-backround-color: get-dark-theme-value($button-background-color);
+        background-color: $dark-button-backround-color;
+        border: solid $dark-button-backround-color;
+    }
+
+    font-weight: "bold";
+}

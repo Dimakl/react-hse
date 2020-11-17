@@ -1,8 +1,11 @@
 import React from 'react'
-import './css/App.css'
-import TaskAddForm from './TaskAddForm/TaskAddForm'
-import TaskList from './TaskList/TaskList.js'
+//import './css/App.scss'
+import styles from './css/App.scss'
+import TaskAddForm from './TaskAddForm/TaskAddForm.jsx'
+import TaskList from './TaskList/TaskList.jsx'
+import classNames from 'classnames/bind'
 
+var cx = classNames.bind(styles)
 
 class App extends React.Component {
 
@@ -62,7 +65,8 @@ class App extends React.Component {
         description: '??????????????',
         completed: false
       }
-    ]
+    ],
+    theme: 'dark'
   }
 
 
@@ -81,6 +85,10 @@ class App extends React.Component {
     })
   }
 
+  changeAppTheme = () => {
+    var newTheme = this.state.theme === 'light' ? 'dark' : 'light'
+    this.setState({theme: newTheme})
+  }
   
   addTask = (name, description) => {
     this.setState(prevState => ({
@@ -99,9 +107,10 @@ class App extends React.Component {
 
   render () {
     return (
-      <div id ="App">
-      <TaskAddForm addTask={this.addTask}/>
-      <TaskList tasks={this.state.tasks} changeCompletionStateFunction={this.changeTaskCompletionState}/>
+      <div className = {cx("app",{[`app-${this.state.theme}-theme`]:true})}>
+      <TaskAddForm addTask={this.addTask} theme={this.state.theme}/>
+      <TaskList tasks={this.state.tasks} theme={this.state.theme} changeCompletionStateFunction={this.changeTaskCompletionState}/>
+      <button onClick={this.changeAppTheme}/>
       </div>
     )
   }

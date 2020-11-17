@@ -1,0 +1,37 @@
+@import '../../css/const.scss';
+
+
+#taskAddForm {
+    position: fixed;
+    line-height: 30px;
+    margin-right: 5%;
+    margin-left: 77%;
+    padding: 10px;
+}
+
+input {
+    width: 96%;
+}
+
+.submit {
+    &-light-theme {
+        $button-backround-color: get-light-theme-value($button-background-color);
+        background-color: $button-backround-color;
+        border: solid $button-backround-color;
+    }
+
+    &-dark-theme {
+        $button-backround-color: get-dark-theme-value($button-background-color);
+        background-color: $button-backround-color;
+        border: solid $button-backround-color;
+    }
+
+    width: 100%;
+}
+
+#errorMessageLine {
+    color: #922B21;
+    font-weight: bold;
+    font-size: 12px;
+}
+

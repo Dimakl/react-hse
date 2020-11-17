@@ -1,0 +1,40 @@
+$button-background-color: 'button-background-color';
+$body-background-color: 'body-background-color';
+$task-background-color: 'task-background-color';
+$object-lining-color: 'object-lining-color';
+$text-color: 'text-color';
+
+
+
+$themes: (
+    light-theme: (
+        $button-background-color: #F7C5CC,
+        $body-background-color: #f8f8ff,
+        $task-background-color:#AA96DA,
+        $object-lining-color: #C5FAD5,
+        $text-color: black
+    ),
+
+    dark-theme: (
+        $button-background-color: #bc6ff1,
+        $body-background-color:#161616,
+        $task-background-color:#52057b,
+        $object-lining-color: #892cdc,
+        $text-color: white
+    )
+);
+
+@function get-light-theme-value ($value) {
+    @return map-get(
+        map-get($themes, 'light-theme'),
+        $value
+    )
+};
+
+
+@function get-dark-theme-value ($value) {
+    @return map-get(
+        map-get($themes, 'dark-theme'),
+        $value
+    )
+}

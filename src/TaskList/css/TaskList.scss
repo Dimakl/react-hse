@@ -1,5 +1,7 @@
-div #taskList {
-    font-size: 20px;
+div {
+    & #taskList {
+        font-size: 20px;
+    }
 }
   
 #taskList { 

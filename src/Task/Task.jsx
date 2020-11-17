@@ -1,6 +1,8 @@
 import React from 'react'
-import './css/Task.css'
+import styles from './css/Task.scss'
+import classNames from 'classnames/bind'
 
+var cx = classNames.bind(styles)
 
 function Task(props) {
 
@@ -15,11 +17,11 @@ function Task(props) {
     console.log(`Task ${props.id} completed status = ${!props.completed}`)
   }
   return (
-    <div className="task">
+    <div className = {cx("task",{[`task-${props.theme}-theme`]:true})}>
       <div>{props.name}</div>
       <div>{props.description}</div>
-      <div><div style={buttonTextStyle}>{props.completed ? "DONE" : "TODO"}</div></div>
-      <button className="taskButton" onClick={changeThisTaskCompletionState}>
+      <div><div className='buttonText' style={buttonTextStyle}>{props.completed ? "DONE" : "TODO"}</div></div>
+      <button className={cx("taskButton",{[`taskButton-${props.theme}-theme`]:true})} onClick={changeThisTaskCompletionState}>
       {props.completed ? "Unc" : "C"}omplete task!
       </button>
   </div>
