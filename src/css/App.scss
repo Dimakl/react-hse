@@ -14,6 +14,9 @@
     & * {
       color: get-light-theme-value($text-color);
     }
+    & .line {
+    background-color: get-light-theme-value($object-lining-color);
+    } 
   }
 
   &-dark-theme {
@@ -24,17 +27,24 @@
     & * {
       color: get-dark-theme-value($text-color);
     }
+    & .line {
+      background-color: get-dark-theme-value($object-lining-color);
+      } 
   }
   
+  display: flex;
+  flex-direction: row;
   border-width: 10px;
 }
 
 h1 {
   font-weight: bold;
   font-size: 30px;
+  text-align: center;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#themeChangeRadio {
-  position: fixed;
+#sideMenu {
+  display: grid;
+  grid-template-rows: 15% 10px 15% 10px;
 }

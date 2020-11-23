@@ -3,6 +3,7 @@ import styles from './css/App.scss'
 import TaskAddForm from './TaskAddForm/TaskAddForm.jsx'
 import TaskList from './TaskList/TaskList.jsx'
 import classNames from 'classnames/bind'
+import ThemeChanger from './ThemeChanger/ThemeChanger'
 
 var cx = classNames.bind(styles)
 
@@ -107,15 +108,13 @@ class App extends React.Component {
   render () {
     return (
       <div className = {cx("app",{[`app-${this.state.theme}-theme`]:true})}>
-      <div id = "themeChangeRadio">
-				<input type="radio" id="light" value="light" name="theme" checked = {this.state.theme === "light"} onChange = {this.changeAppTheme}></input>
-				<label>Light theme</label>
-				<input type="radio" id = "dark" value="dark" name="theme" checked={this.state.theme === "dark"} onChange = {this.changeAppTheme}></input>
-				<label>Dark theme</label>
-			</div>
-      <TaskAddForm addTask={this.addTask} theme={this.state.theme}/>
       <TaskList tasks={this.state.tasks} theme={this.state.theme} changeCompletionStateFunction={this.changeTaskCompletionState}/>
-      
+      <div id="sideMenu" >
+        <TaskAddForm addTask={this.addTask} theme={this.state.theme}/>
+        <div className="line"/>
+        <ThemeChanger changeAppTheme={this.changeAppTheme} theme={this.state.theme}/>
+        <div className="line"/>
+      </div>
       </div>
     )
   }
