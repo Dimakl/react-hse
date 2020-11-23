@@ -46,5 +46,5 @@ h1 {
 
 #sideMenu {
   display: grid;
-  grid-template-rows: 15% 10px 15% 10px;
+  grid-template-rows: repeat(2, 15% 10px);
 }
