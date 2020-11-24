@@ -1,29 +1,36 @@
 import React from 'react'
 import styles from './css/TaskAddForm.scss'
 import classNames from 'classnames/bind'
+import { connect } from "react-redux"
+import { handleTaskAddition } from '../../actions/tasks'
 
 var cx = classNames.bind(styles)
 
-class TaskAddForm extends React.Component {
+const mapStateToProps = (state) => ({
+    theme:  state.theme.theme
+});
+
+const mapDispatchToProps = (dispatch) =>({
+    dispatchOnTaskAddition : (task) => dispatch(handleTaskAddition(task))
+})
+
+class TaskAddFormComponent extends React.Component {
+
+    addTask = (task) => {
+        this.props.dispatchOnTaskAddition(task)
+        this.clearForm()
+    }
     
     state = {
         errorMessage: "",
     }
+
     nameInput = ""
     descriptionInput = ""
-
-    
-    constructor(props) {
-        super(props)
-        this.addTask = () => {
-            props.addTask(this.nameInput.value,this.descriptionInput.value)
-            this.clearForm()
-        }
-    }
-
+    z
 
     onClickForSubmit = () =>
-        (this.nameInput.value === "" || this.descriptionInput.value === "") ? this.showErrorMessage() : this.addTask()
+        (this.nameInput.value === "" || this.descriptionInput.value === "") ? this.showErrorMessage() : this.addTask({ name: this.nameInput.value, description: this.descriptionInput.value })
 
 
     showErrorMessage = () => {
@@ -55,4 +62,4 @@ class TaskAddForm extends React.Component {
 }
 
 
-export default TaskAddForm
+export const TaskAddForm = connect(mapStateToProps, mapDispatchToProps)(TaskAddFormComponent)

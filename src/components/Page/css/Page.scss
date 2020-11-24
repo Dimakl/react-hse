@@ -1,15 +1,16 @@
-@import 'const.scss';
+@import '../../App/css/const.scss';
 
 * {
   font-family: "Lucida Console", Courier, monospace;
   transition: all 1s linear;
-  }
+}
 
-.app {
+.page {
   &-light-theme {
     background-color: get-light-theme-value($body-background-color);
     & > * {
-      border: solid 10px get-light-theme-value($object-lining-color);
+      border: solid get-light-theme-value($object-lining-color);
+      border-width: 10px 5px 10px 5px;
     }
     & * {
       color: get-light-theme-value($text-color);
@@ -22,7 +23,8 @@
   &-dark-theme {
     background-color: get-dark-theme-value($body-background-color);
     & > * {
-      border: solid 10px get-dark-theme-value($object-lining-color);
+      border: solid get-dark-theme-value($object-lining-color);
+      border-width: 10px 5px 10px 5px;
     }
     & * {
       color: get-dark-theme-value($text-color);
@@ -31,7 +33,6 @@
       background-color: get-dark-theme-value($object-lining-color);
       } 
   }
-  
   display: flex;
   flex-direction: row;
   border-width: 10px;

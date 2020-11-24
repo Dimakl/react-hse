@@ -1,10 +1,20 @@
 import React from 'react'
 import styles from './css/Task.scss'
 import classNames from 'classnames/bind'
+import { connect } from 'react-redux'
+import { handleCompletionStateChange } from '../../actions/tasks'
 
 var cx = classNames.bind(styles)
 
-function Task(props) {
+const mapStateToProps = (state) => ({
+    theme:  state.theme.theme
+});
+
+const mapDispatchToProps = (dispatch) =>({
+  dispatchOnThemeChange : (taskId) => dispatch(handleCompletionStateChange(taskId))
+})
+
+function TaskComponent(props) {
 
   var taskButtonColors = {
     green: "#196F3D",
@@ -12,10 +22,12 @@ function Task(props) {
   } 
 
   let buttonTextStyle =  {color: props.completed ? taskButtonColors.green : taskButtonColors.red}
+
   const changeThisTaskCompletionState = () => {
-    props.changeCompletionStateFunction(props.id)
+    props.dispatchOnThemeChange(props.id)
     console.log(`Task ${props.id} completed status = ${!props.completed}`)
   }
+
   return (
     <div className = {cx("task",{[`task-${props.theme}-theme`]:true})}>
       <div>{props.name}</div>
@@ -29,4 +41,4 @@ function Task(props) {
 }
 
 
-  export default Task
+  export const Task = connect(mapStateToProps, mapDispatchToProps)(TaskComponent)
