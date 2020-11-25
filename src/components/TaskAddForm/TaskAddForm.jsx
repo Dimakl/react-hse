@@ -50,12 +50,14 @@ class TaskAddFormComponent extends React.Component {
         return (
         <div id="taskAddForm">
         <h1>ADD TASKS:</h1>
-        <p id="errorMessageLine">{this.state.errorMessage}</p>
-        <input id="name" ref={(nameInput) => this.nameInput = nameInput} />
-        <br/>
-        <input id="description" ref={(descriptionInput) => this.descriptionInput = descriptionInput} />
-        <br/>
-        <button className={cx("submit",{[`submit-${this.props.theme}-theme`]:true})} onClick={this.onClickForSubmit}>Add!</button>
+        <div id="addFormInterface">
+            <p id="errorMessageLine">{this.state.errorMessage}</p>
+            <input id="name" placeholder="task heading" ref={(nameInput) => this.nameInput = nameInput} />
+            <br/>
+            <input id="description" placeholder="task description" ref={(descriptionInput) => this.descriptionInput = descriptionInput} />
+            <br/>
+            <button className={cx("submit",{[`submit-${this.props.theme}-theme`]:true})} onClick={this.onClickForSubmit}>Add!</button>
+        </div>
         </div>
         )
     }
