@@ -2,7 +2,6 @@
 
 * {
   font-family: "Lucida Console", Courier, monospace;
-  transition: all 1s linear;
 }
 
 
@@ -33,6 +32,12 @@
       background-color: get-dark-theme-value($object-lining-color);
       } 
   }
+
+  transition: all 1s linear;
+  & * {
+  transition: all 1s linear;
+  }
+
   display: grid;
   grid-template: auto 1fr/ minmax(175px,15%) auto minmax(175px,15%);
   border-width: 10px;
