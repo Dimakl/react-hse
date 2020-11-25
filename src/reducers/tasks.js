@@ -1,4 +1,6 @@
 import { ADD_TASK, COMPLETION_STATE_CHANGE } from '../actions/tasks'
+import { v4 } from 'node-uuid'
+
 
 const initialState = {
     tasks: [
@@ -68,7 +70,7 @@ export const tasksReducer = (state = initialState, action) => {
                 tasks: [
                     ...state.tasks,
                     {
-                        id: state.tasks.length,
+                        id: v4(),
                         name: action.payload.name,
                         description: action.payload.description,
                         completed: false

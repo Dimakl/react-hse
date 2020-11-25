@@ -21,7 +21,8 @@ function TaskComponent(props) {
     red: "#922B21"
   } 
 
-  let buttonTextStyle =  {color: props.completed ? taskButtonColors.green : taskButtonColors.red}
+  const buttonTextStyle =  {color: props.completed ? taskButtonColors.green : taskButtonColors.red}
+  const taskTextStyle = {textDecoration: props.completed ? "none" : "line-through" }
 
   const changeThisTaskCompletionState = () => {
     props.dispatchOnThemeChange(props.id)
@@ -30,8 +31,8 @@ function TaskComponent(props) {
 
   return (
     <div className = {cx("task",{[`task-${props.theme}-theme`]:true})}>
-      <div>{props.name}</div>
-      <div>{props.description}</div>
+      <div style={taskTextStyle}>{props.name}</div>
+      <div style={taskTextStyle}>{props.description} </div>
       <div><div className='buttonText' style={buttonTextStyle}>{props.completed ? "DONE" : "TODO"}</div></div>
       <button className={cx("taskButton",{[`taskButton-${props.theme}-theme`]:true})} onClick={changeThisTaskCompletionState}>
       {props.completed ? "Unc" : "C"}omplete task!
