@@ -1,4 +1,4 @@
-import { ADD_TASK, COMPLETION_STATE_CHANGE } from '../actions/tasks'
+import { ADD_TASK, COMPLETION_STATE_CHANGE, DELETE_TASK } from '../actions/tasks'
 import { v4 } from 'node-uuid'
 
 
@@ -93,6 +93,12 @@ export const tasksReducer = (state = initialState, action) => {
                 ...state,
                 tasks: newTasks
             }
+        }
+        case DELETE_TASK: {
+          return {
+            ...state,
+            tasks: [ ...state.tasks.filter(task => task.id !== action.payload) ]
+          }
         }
         default:
             return state

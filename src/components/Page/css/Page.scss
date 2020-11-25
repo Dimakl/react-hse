@@ -4,8 +4,6 @@
   font-family: "Lucida Console", Courier, monospace;
 }
 
-
-
 .page {
   &-light-theme {
     background-color: get-light-theme-value($body-background-color);
@@ -34,12 +32,12 @@
   }
 
   transition: all 1s linear;
-  & * {
+  & *:not(.buttonText) {
   transition: all 1s linear;
   }
-
+  min-height: 100vh;
   display: grid;
-  grid-template: auto 1fr/ minmax(175px,15%) auto minmax(175px,15%);
+  grid-template: auto  / minmax(175px,15%) auto minmax(175px,15%);
   border-width: 10px;
 }
 

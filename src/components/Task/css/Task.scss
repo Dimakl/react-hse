@@ -18,8 +18,22 @@
     }
 }
 
-.buttonText {
-    transition: 0.25s linear;
+.taskName {
+    font-weight: bold;
+}
+
+.taskBottomBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.taskDelete {
+    font-size: 12px;
+    align-self: flex-end;
+    cursor: pointer;
+    text-decoration: underline dotted;
+
 }
   
 .taskButton {
