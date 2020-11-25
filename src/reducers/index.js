@@ -1,4 +1,4 @@
-import { combineReducers, combineRedusers } from "redux"
+import { combineReducers } from "redux"
 import { themeReducer } from "./theme"
 import { tasksReducer } from "./tasks"
 

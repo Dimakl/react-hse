@@ -1,4 +1,3 @@
-import { act } from 'react-dom/test-utils'
 import { ADD_TASK, COMPLETION_STATE_CHANGE } from '../actions/tasks'
 
 const initialState = {
