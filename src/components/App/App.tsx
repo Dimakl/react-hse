@@ -1,16 +1,17 @@
 import React from 'react'
 import { Page } from '../Page/Page'
-import { loadState, saveState } from './../../persistence/localStorage'
+import { loadState, saveState } from '../../persistence/localStorage'
 
 
 import { createStore } from 'redux'
 import { Provider } from "react-redux"
 import { rootReducer } from '../../reducers/index'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 
 const persistedState = loadState()
-const store = createStore(rootReducer, persistedState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
+const store = createStore(rootReducer, persistedState, composeWithDevTools())
+// maybe should use lodash throttle
 store.subscribe(() => {
   saveState({
     tasks: store.getState().tasks,
@@ -18,8 +19,7 @@ store.subscribe(() => {
   })
 })
 
-class App extends React.Component {
-
+class App extends React.Component<{},{}>  {
   render () {
     return (
       <Provider store={store}>

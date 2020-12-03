@@ -1,21 +1,27 @@
 import React from 'react'
-import styles from './css/Page.scss'
-import { TaskList } from './../TaskList/TaskList.jsx'
+import { TaskList } from '../TaskList/TaskList'
 import classNames from 'classnames/bind'
-import { ThemeChanger } from './../ThemeChanger/ThemeChanger'
-import { TaskAddForm } from './../TaskAddForm/TaskAddForm.jsx'
+import { ThemeChanger } from '../ThemeChanger/ThemeChanger'
+import { TaskAddForm } from '../TaskAddForm/TaskAddForm'
 
 import { connect } from "react-redux";
+import { RootState, ThemeStates } from '../../types.js'
 
-
+const styles = require('./css/Page.scss') // как написать нормально?
 
 var cx = classNames.bind(styles)
 
-const mapStateToProps = (state) => ({
+interface PageProps {
+    theme : ThemeStates
+}
+
+
+
+const mapStateToProps = (state : RootState) => ({
     theme:  state.theme.theme
 });
 
-function PageComponent({ theme }) {
+function PageComponent({ theme } : PageProps) {
     return (
         <div className = {cx("page",{[`page-${theme}-theme`]:true})}>
             <ThemeChanger className="sideBar"/>
