@@ -21,7 +21,7 @@ const mapStateToProps = (state : RootState) => ({
     theme:  state.theme.theme
 });
 
-function PageComponent({ theme } : PageProps) {
+const PageComponent = ({ theme } : PageProps) => {
     return (
         <div className = {cx("page",{[`page-${theme}-theme`]:true})}>
             <ThemeChanger className="sideBar"/>
