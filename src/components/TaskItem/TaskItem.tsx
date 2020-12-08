@@ -10,7 +10,6 @@ const styles = require('./css/Task.scss')
 var cx = classNames.bind(styles)
 
 
-
 const mapStateToProps = (state : RootState) => ({
     theme:  state.theme.theme
 });
@@ -18,7 +17,6 @@ const mapStateToProps = (state : RootState) => ({
 const mapDispatchToProps = (dispatch : Dispatch<TasksActionTypes>) =>({
   dispatchOncompletionStateChange : (taskId : number) => dispatch(handleCompletionStateChange(taskId)),
   dispatchOnTaskDeletion : (taskId : number) => dispatch(handleTaskDeletion(taskId))
-  
 })
 
 interface TaskProps {

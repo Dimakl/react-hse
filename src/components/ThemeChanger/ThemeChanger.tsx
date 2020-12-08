@@ -9,13 +9,13 @@ const mapStateToProps = (state : RootState) =>({
 	theme: state.theme.theme
 })
 
-const mapDispatchToProps = (dispatch : Dispatch<ThemeActionTypes>)  => ({ // можно ли поменять ThemeActionTypes на более строгое ограничение
+const mapDispatchToProps = (dispatch : Dispatch<ThemeActionTypes>)  => ({ 
     dispatchOnThemeChange : (theme : ThemeStates) => dispatch(handleThemeChange(theme))
 })
 
 interface ThemeChangerProps {
     theme: ThemeStates,
-    dispatchOnThemeChange: Function // как по-нормальному это сделать?
+    dispatchOnThemeChange: (theme : ThemeStates) => void
 }
 
 

@@ -16,10 +16,9 @@ interface TaskListProps {
 }
 
 const TaskListComponent = ({ currentProject, projects } : TaskListProps) => {
-      
     return (
       <div id="taskList">
-        <h1 id="taskListText">YOUR PERSONAL TODO-LIST:</h1>
+        <h1 id="taskListText">{projects[currentProject].name}:</h1>
           {projects[currentProject].tasks.map((taskData) => <TaskItem task={taskData} key={taskData.id} />)}
       </div>
     )      

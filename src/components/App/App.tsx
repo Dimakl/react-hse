@@ -1,6 +1,6 @@
 import React from 'react'
-import { Page } from '../Page/Page'
 import { loadState, saveState } from '../../persistence/localStorage'
+import { Home } from './../Home/Home'
 
 
 import { createStore } from 'redux'
@@ -23,7 +23,7 @@ class App extends React.Component<{},{}>  {
   render () {
     return (
       <Provider store={store}>
-        <Page />
+        <Home />
       </Provider>
     )
   }
