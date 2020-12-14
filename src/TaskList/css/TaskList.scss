@@ -1,0 +1,12 @@
+div {
+    & #taskList {
+        font-size: 20px;
+    }
+}
+  
+#taskList { 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+}
