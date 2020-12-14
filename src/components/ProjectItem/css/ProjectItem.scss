@@ -1,0 +1,23 @@
+@import '../../App/css/const.scss';
+
+.item {
+    &-light-theme {
+        background: get-light-theme-value($task-background-color);
+    }
+
+    &-dark-theme {
+        background: get-dark-theme-value($task-background-color);
+    }
+
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+
+    & > div {
+        margin-bottom: 3px;
+    }
+}
+
+.taskName {
+    font-weight: bold;
+}

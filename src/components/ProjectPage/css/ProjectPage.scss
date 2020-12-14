@@ -1,0 +1,49 @@
+@import '../../App/css/const.scss';
+
+* {
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+.page {
+  &-light-theme {
+    background-color: get-light-theme-value($body-background-color);
+    & > #taskList {
+      border: solid 10px get-light-theme-value($object-lining-color);
+    }
+    & * {
+      color: get-light-theme-value($text-color);
+    }
+    & .line {
+    background-color: get-light-theme-value($object-lining-color);
+    } 
+  }
+
+  &-dark-theme {
+    background-color: get-dark-theme-value($body-background-color);
+    & > #taskList {
+      border: solid 10px get-dark-theme-value($object-lining-color);
+    }
+    & * {
+      color: get-dark-theme-value($text-color);
+    }
+    & .line {
+      background-color: get-dark-theme-value($object-lining-color);
+      } 
+  }
+
+  transition: all 1s linear;
+  & *:not(.buttonText) {
+  transition: all 1s linear;
+  }
+  min-height: 100vh;
+  display: grid;
+  grid-template: auto  / minmax(175px,15%) auto minmax(175px,15%);
+  border-width: 10px;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}

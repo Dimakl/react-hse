@@ -1,0 +1,31 @@
+@import '../../App/css/const.scss';
+
+input {
+    width: 96%;
+    color: #000000 !important;
+}
+
+.submit {
+    &-light-theme {
+        $button-backround-color: get-light-theme-value($button-background-color);
+        background-color: $button-backround-color;
+        border: solid $button-backround-color;
+    }
+
+    &-dark-theme {
+        $button-backround-color: get-dark-theme-value($button-background-color);
+        background-color: $button-backround-color;
+        border: solid $button-backround-color;
+    }
+
+    width: 100%;
+}
+
+#addFormInterface {
+    width: 95%;
+    margin: auto;
+}
+
+#projectAddForm {
+    padding-bottom: 10px;
+}
