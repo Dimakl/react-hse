@@ -1,4 +1,4 @@
-@import '../../css/const.scss';
+@import '../../App/css/const.scss';
 
 input {
     width: 96%;
@@ -27,3 +27,11 @@ input {
     font-size: 12px;
 }
 
+#addFormInterface {
+    width: 95%;
+    margin: auto;
+}
+
+#taskAddForm {
+    padding-bottom: 10px;
+}
